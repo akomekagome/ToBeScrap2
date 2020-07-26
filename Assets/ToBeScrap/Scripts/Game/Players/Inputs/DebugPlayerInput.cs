@@ -33,7 +33,8 @@ namespace ToBeScrap.Game.Players.Inputs
                 .Subscribe(x => _hasPressingJumpButton.Value = x);
 
             this.UpdateAsObservable()
-                .Select(_ => Input.GetKeyDown(KeyCode.E));
+                .Select(_ => Input.GetKeyDown(KeyCode.E))
+                .Subscribe(x => _hasPressingItemButton.Value = x);
         }
     }
 }

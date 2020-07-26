@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 1861972331072132440}
   - component: {fileID: 1861972331072132445}
   - component: {fileID: 1861972331072132444}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RobotBlueParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,6 +151,7 @@ MonoBehaviour:
   - {fileID: 1861972331072132445}
   - {fileID: 1861972331072132444}
   - {fileID: 1861972331072132441}
+  - {fileID: 1371066392096979077}
   _identifier: 
   _useSceneContext: 0
   _context: {fileID: 1861972331072132442}
@@ -199,6 +200,59 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6932064184104324397}
     m_Modifications:
+    - target: {fileID: 8729153, guid: fdcabe40c1b456b448773ec4460fca35, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 910141917, guid: fdcabe40c1b456b448773ec4460fca35, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1217205792, guid: fdcabe40c1b456b448773ec4460fca35, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1315664447, guid: fdcabe40c1b456b448773ec4460fca35, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479437458, guid: fdcabe40c1b456b448773ec4460fca35, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2077897875, guid: fdcabe40c1b456b448773ec4460fca35, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4665723768066062, guid: fdcabe40c1b456b448773ec4460fca35, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 332770142419478783, guid: fdcabe40c1b456b448773ec4460fca35,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1570470776233379346, guid: fdcabe40c1b456b448773ec4460fca35,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893951984124027713, guid: fdcabe40c1b456b448773ec4460fca35,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550070167086274114, guid: fdcabe40c1b456b448773ec4460fca35,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3155385712077178038, guid: fdcabe40c1b456b448773ec4460fca35,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3311221669096468297, guid: fdcabe40c1b456b448773ec4460fca35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -254,10 +308,65 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3841228442045985407, guid: fdcabe40c1b456b448773ec4460fca35,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6059449047411078912, guid: fdcabe40c1b456b448773ec4460fca35,
         type: 3}
       propertyPath: m_Name
       value: Robot_BlueObj Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6059449047411078912, guid: fdcabe40c1b456b448773ec4460fca35,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6282804454302303347, guid: fdcabe40c1b456b448773ec4460fca35,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436972929480014920, guid: fdcabe40c1b456b448773ec4460fca35,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6754419245889097094, guid: fdcabe40c1b456b448773ec4460fca35,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6857738869049051233, guid: fdcabe40c1b456b448773ec4460fca35,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7317425169113314982, guid: fdcabe40c1b456b448773ec4460fca35,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7426375755825597868, guid: fdcabe40c1b456b448773ec4460fca35,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028297026028220171, guid: fdcabe40c1b456b448773ec4460fca35,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570769943220073299, guid: fdcabe40c1b456b448773ec4460fca35,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8707903804228143972, guid: fdcabe40c1b456b448773ec4460fca35,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdcabe40c1b456b448773ec4460fca35, type: 3}

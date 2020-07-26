@@ -1,3 +1,5 @@
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using ToBeScrap.Game.Items;
 using ToBeScrap.Game.Players.Inputs;
 using UnityEngine;
@@ -18,22 +20,43 @@ namespace ToBeScrap.Game.Players
 
         private void Start()
         {
-            _itemGetter.TouchingItemObservable
-                .Where(x => _input.HasPressingItemButton.Value && x.Owner.Value == PlayerId.None) 
-                .ThrottleFirstFrame(0)
-                .Subscribe(HasItem);
+            var token = this.GetCancellationTokenOnDestroy();
+            GrabItemLoopAsync(token).Forget();
+        }
 
-            _input.HasPressingItemButton
-                .Where(x => x)
-                .AsUnitObservable()
-                .BatchFrame(0, FrameCountType.FixedUpdate)
-                .Select(_ => _input.ThrowDirection.Value)
-                .Where(_ => CurrentHasItem.Value != null)
-                .Subscribe(v =>
-                {
-                    CurrentHasItem.Value.UnOwn();
-                    CurrentHasItem.Value.OnThrow(v);
-                });
+        private async UniTaskVoid GrabItemLoopAsync(CancellationToken token = default)
+        {
+            while (!token.IsCancellationRequested)
+            {
+                var item = await _itemGetter.TouchingItemObservable
+                    .Where(x => _input.HasPressingItemButton.Value && x.Owner.Value == PlayerId.None)
+                    .FirstOrDefault()
+                    .ToUniTask(cancellationToken: token);
+                
+                HasItem(item);
+
+                await UniTask.DelayFrame(1, cancellationToken: token);
+                await UniTask.Yield(PlayerLoopTiming.FixedUpdate);
+
+                await _input.HasPressingItemButton.Where(x => x).FirstOrDefault().ToUniTask(cancellationToken: token);
+                
+                if (!(CurrentHasItem.Value != null && CurrentHasItem.Value.Owner.Value == _player.PlayerId))
+                    continue;
+
+                var direction = _input.ThrowDirection.Value;
+                if(direction == Vector2.zero)
+                    direction = Vector2.right;
+                
+                CurrentHasItem.Value.OnThrow(direction);
+
+                await CurrentHasItem.Value.IsGrounded.Where(x => x).FirstOrDefault()
+                    .ToUniTask(cancellationToken: token);
+                
+                CurrentHasItem.Value.UnOwn();
+
+                    await UniTask.Delay(100, cancellationToken: token);
+                await UniTask.Yield(PlayerLoopTiming.Update);
+            }
         }
 
         private void SwitchItem(Item item)
@@ -47,9 +70,9 @@ namespace ToBeScrap.Game.Players
         private void HasItem(Item item)
         {
             SwitchItem(item);
-            item.transform.rotation = quaternion.identity;
-            item.transform.SetParent(transform, false);
+            item.transform.SetParent(rightHandTransform, false);
             item.transform.localPosition = Vector3.zero;
+            item.transform.rotation = quaternion.identity;
         }
     }
 }
