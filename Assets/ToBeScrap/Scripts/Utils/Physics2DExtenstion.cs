@@ -45,5 +45,15 @@ namespace ToBeScrap.Utils
                 layerMask
             );
         }
+        
+        public static Collider2D[] OverlapBoxColliderALL(BoxCollider2D boxCollider2D, Vector2 origin, int layerMask)
+        {
+            return Physics2D.OverlapBoxAll(
+                origin + boxCollider2D.offset,
+                boxCollider2D.size,
+                0f,
+                layerMask
+            );
+        }
     }
 }

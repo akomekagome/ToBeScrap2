@@ -40,7 +40,7 @@ namespace ToBeScrap.Game.Players
 
                 await _input.HasPressingItemButton.Where(x => x).FirstOrDefault().ToUniTask(cancellationToken: token);
                 
-                if (!(CurrentHasItem.Value != null && CurrentHasItem.Value.Owner.Value == _player.PlayerId))
+                if (!(CurrentHasItem.Value != null && CurrentHasItem.Value.Owner.Value == _player.AttackerId))
                     continue;
 
                 var direction = _input.ThrowDirection.Value;
@@ -63,13 +63,14 @@ namespace ToBeScrap.Game.Players
         {
             if (CurrentHasItem.Value != null)
                 CurrentHasItem.Value.UnOwn();
-            item.Own(_player.PlayerId);
+            item.Own(_player.AttackerId);
             _currentHasItem.Value = item;
         }
 
         private void HasItem(Item item)
         {
             SwitchItem(item);
+            item.Init(_player);
             item.transform.SetParent(rightHandTransform, false);
             item.transform.localPosition = Vector3.zero;
             item.transform.rotation = quaternion.identity;

@@ -723,6 +723,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RobotBlueParent
       objectReference: {fileID: 0}
+    - target: {fileID: 1371066392096979077, guid: c7ca3b10de5c1a94db0703c2531a5674,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: da655957994a05648b3f0f2cbbcedb85, type: 2}
     - target: {fileID: 1861972331072132445, guid: c7ca3b10de5c1a94db0703c2531a5674,
         type: 3}
       propertyPath: rightHandTransform
@@ -731,7 +736,7 @@ PrefabInstance:
     - target: {fileID: 1861972331072132454, guid: c7ca3b10de5c1a94db0703c2531a5674,
         type: 3}
       propertyPath: filter2d.layerMask.m_Bits
-      value: 1
+      value: 288
       objectReference: {fileID: 0}
     - target: {fileID: 1861972331072132454, guid: c7ca3b10de5c1a94db0703c2531a5674,
         type: 3}
