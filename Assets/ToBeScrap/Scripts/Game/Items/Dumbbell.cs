@@ -10,7 +10,7 @@ namespace ToBeScrap.Game.Items
         public override void OnThrow(Vector2 direction)
         {
             Rb2D.simulated = true;
-            Rb2D.velocity = direction * ItemSpeed;
+            Rb2D.velocity = direction * _itemStatusData.itemSpeed;
         }
     }
 }

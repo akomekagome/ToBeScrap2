@@ -14,11 +14,12 @@ namespace ToBeScrap.Game.Items
 {
     public abstract class Item : MonoBehaviour, IGrabbable, IOwnable
     {
+        [Inject] protected ItemStatusTable ItemStatusTable;
         [Inject] protected Rigidbody2D Rb2D;
         [Inject] protected BoxCollider2D BoxCollider2D;
         [SerializeField] protected ItemType itemType;
-        protected readonly float ItemSpeed = 100f;
         protected IAttacker _attacker;
+        protected ItemStatusData _itemStatusData;
         private BoolReactiveProperty _isGrounded = new BoolReactiveProperty(false);
         public IReadOnlyReactiveProperty<bool> IsGrounded => _isGrounded.ToReadOnlyReactiveProperty();
 
@@ -28,7 +29,8 @@ namespace ToBeScrap.Game.Items
         }
         
         private void Start()
-        { 
+        {
+            _itemStatusData = ItemStatusTable.GetItemStatusData(itemType);
             var groundMask = 1 << (int)LayerName.Ground;
             var playerMask = 1 << (int)LayerName.Player;
 
@@ -46,13 +48,17 @@ namespace ToBeScrap.Game.Items
                 .Select(x => x.Select(c => c.GetComponent<Player>()).Where(p => p != null && p.AttackerId != _owner.Value && _owner.Value != PlayerId.None).ToList())
                 .Where(x => x.Any())
                 .Subscribe(x => OnDamage(x));
+
+            IsGrounded
+                .Where(x => x && Mathf.Abs(Rb2D.velocity.x) > 5f)
+                .Subscribe(_ => Rb2D.velocity = Vector2.right * ((Rb2D.velocity.x >= 0f ? 1f : -1f) * 5f));
         }
 
         private void OnDamage(List<Player> players)
         {
             foreach (var damageable in players.Select(x => x.GetComponent<IDamageable>()).Where(x => x != null))
             {
-                var damage = new Damage(new Vector2(1, 1) * 50f, _attacker);
+                var damage = new Damage(new Vector2(1, 1) * _itemStatusData.itemWeight, _attacker);
                 damageable.ApplyDamage(damage);
             }
         }

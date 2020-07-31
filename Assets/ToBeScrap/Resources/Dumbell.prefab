@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 3762780354417196502}
   - component: {fileID: 3762780354417196500}
   - component: {fileID: 3762780354417196506}
+  - component: {fileID: -4892730234401672420}
   m_Layer: 9
   m_Name: Dumbell
   m_TagString: Untagged
@@ -146,7 +147,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e5aa36291367dba4c80f7dafc8edd05b, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -213,3 +214,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9075531, y: 0.48944426}
   m_EdgeRadius: 0
+--- !u!114 &-4892730234401672420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3762780354417196509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _containerSource: 0

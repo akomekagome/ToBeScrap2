@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 1861972331072132445}
   - component: {fileID: 1861972331072132444}
   - component: {fileID: 2757497436745423940}
+  - component: {fileID: -4311338856476677240}
   m_Layer: 8
   m_Name: RobotBlueParent
   m_TagString: Untagged
@@ -182,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f8d50b02c874ec880958b2e536c13f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightHandTransform: {fileID: 0}
+  rightHandTransform: {fileID: 2986904501044804391}
 --- !u!114 &1861972331072132444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,6 +208,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bedfe45c3bfb4f0ca0cf9e131ad9728f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4311338856476677240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861972331072132452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _containerSource: 0
 --- !u!1001 &2986904502244175110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -387,6 +401,12 @@ PrefabInstance:
 --- !u!4 &324346316804407887 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3311221669096468297, guid: fdcabe40c1b456b448773ec4460fca35,
+    type: 3}
+  m_PrefabInstance: {fileID: 2986904502244175110}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2986904501044804391 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1217205793, guid: fdcabe40c1b456b448773ec4460fca35,
     type: 3}
   m_PrefabInstance: {fileID: 2986904502244175110}
   m_PrefabAsset: {fileID: 0}
